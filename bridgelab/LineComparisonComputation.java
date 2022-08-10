@@ -25,10 +25,10 @@ public class LineComparisonComputation {
         System.out.println("Length of the given Line is : " + len + " units" );
         System.out.println("Length of the given Line is : " + len1 + " units" );
         //System.out.println(len.equals(len1));
-        if(len.equals(len1))
-            System.out.println("both lines are equal");
+        if(len.compareTo(len1) == 1) 
+            System.out.println("length of line 1 is greater then line 2");
         else
-            System.out.println("not equal");
+            System.out.println("length of line 1 is less then line 2");
     }
     public static void main(String[] args) {
         length();
