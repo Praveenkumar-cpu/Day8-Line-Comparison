@@ -3,37 +3,64 @@ package bridgelab;
 import java.util.Scanner;
 
 public class LineComparisonComputation {
-    public static int x1, x2,x3,x4, y1, y2,y3,y4;
-    public static void length()
-    {
+
+    public static float length;
+
+    public static float line_1;
+
+    public static float line_2;
+
+    public static int x1, x2, y1, y2;
+
+    public static void inputs () {
+        //Displaying Welcome Message
         System.out.println("Welcome to Line Comparison Computation Program");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Co-ordinates of x1 and y1 : ");
-        x1 = sc.nextInt();
-        y1 = sc.nextInt();
-        System.out.println("Enter the Co-ordinates of x2 and y2 : ");
-        x2 = sc.nextInt();
-        y2 = sc.nextInt();
-        Double len = Math.sqrt((x2 - x1) * (x2 - x1)  +  (y2 - y1) * (y2 - y1));
-        System.out.println("Enter the Co-ordinates of x3 and y3 : ");
-        x3 = sc.nextInt();
-        y3 = sc.nextInt();
-        System.out.println("Enter the Co-ordinates of x4 and y4 : ");
-        x4 = sc.nextInt();
-        y4 = sc.nextInt();
-        Double len1 = Math.sqrt((x4 - x3) * (x4 - x3)  +  (y4 - y3) * (y4 - y3));
-        System.out.println("Length of the given Line is : " + len + " units" );
-        System.out.println("Length of the given Line is : " + len1 + " units" );
-        //System.out.println(len.equals(len1));
-        if(len.compareTo(len1) == 1) 
-            System.out.println("length of line 1 is greater then line 2");
-        else
-            System.out.println("length of line 1 is less then line 2");
-    }
-    public static void main(String[] args) {
+        //Calculating Length for Line 1 by taking values
+        System.out.println("Enter The values for Line 1");
         length();
-
+        System.out.println("Length of LINE-1  points " + "(" + x1 + "," + y1 + ") & " + "(" + x2 + "," + y2 + ") " + "is " + length + "\n");
+        line_1 = length;
+        //Calculating Length for Line 2 by taking values
+        System.out.println("Enter The values for Line 2");
+        length();
+        System.out.println("Length of LINE-2  points " + "(" + x1 + "," + y1 + ") & " + "(" + x2 + "," + y2 + ") " + "is " + length + "\n");
+        line_2 = length;
+        compare();
+    }
+    public static void compare () {
+        //Comparing the line lengths
+        int compare = Float.compare(line_1, line_2);
+        if (compare == 0) {
+            System.out.println("Length of LINE-1 & LINE-2 are equal.");
+        } else if (compare > 0) {
+            System.out.println("length of LINE-1 is greater than LINE-2.");
+        } else {
+            System.out.println("length of LINE-1 is smaller than LINE-2.");
+        }
+    }
+    public static void length () {
+        Scanner scan = new Scanner(System.in);
+        //scanning user input values
+        System.out.println("Enter the x1 value for Line:");
+        x1 = scan.nextInt();
+        System.out.println("Enter the y1 value for Line:");
+        y1 = scan.nextInt();
+        System.out.println("Enter the x2 value for Line:");
+        x2 = scan.nextInt();
+        System.out.println("Enter the y2 value for Line:");
+        y2 = scan.nextInt();
+        //Calculating the length using formula
+        length = (float) Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 
+
+    public static void main(String[] args) {
+        LineComparisonComputation lengthCompareRef = new LineComparisonComputation();
+        lengthCompareRef.inputs();
+
+
+
+
+    }
 }
 
